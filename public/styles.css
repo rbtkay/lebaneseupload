@@ -1,0 +1,22 @@
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  /* max-width: 800px; */
+  margin-top: 3rem;
+}
+.card {
+  margin: 1rem;
+  flex-basis: 45%;
+  padding: 1.5rem;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+}
+
+.pagination{
+
+}

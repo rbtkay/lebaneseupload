@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lucas uploader
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+
+		.header {
+			background-color: red;
+			height: 100px;
+			width: 100%
+		}
+		.footer {
+			background-color: red;
+			height: 100px;
+			width: 100%;
+			margin-top: -50px
+		}
+		.content {
+			min-height: calc(100vh - 200px);
+			padding-top: 200px;
+		}
+		form {
+			padding: 25px;
+			border: solid green;
+			border-radius: 25px;
+			text-align: center
+		}
+
+		.navbar {
+			background-color: red !important;
+			height: 100px;
+			width: 100%
+		}
+
+		.nav-link {
+			color: green !important;
+			font-weight: bold !important;
+		}
+	</style>
+
+	{# <div class="header"> #}
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="/read">View Documents</a>
+			</li>
+		</ul>
+	</nav>
+	{# </div> #}
+	<div class="example-wrapper content">
+		<form action="/document" method="POST" enctype="multipart/form-data" id="form_id">
+			<div class="form-group">
+				<input class="form-control" type="file" name="upload_file">
+			</div>
+			{% if status is not null %}
+				<span class="{{status["style"]}}">{{ status["msg"] }}</span>
+				<br/>
+				<br/>
+			{% endif %}
+			{# <video width="400" controls>
+							<source src="/uploads/5f2ee29887089-VID-20200804-WA0082.mp4" type="video/mp4">
+							Your browser does not support HTML video.
+						</video>
+						<br/>
+						<br/> #}
+			<button class="btn btn-success" id="submitBtn">Submit</button>
+		</form>
+	</div>
+	<div class="footer"></div>
+	<script src="/scripts/submitBtn.js"></script>
+
+{% endblock %}

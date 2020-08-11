@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lucas uploader
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+
+		.header {
+			background-color: red;
+			height: 100px;
+			width: 100%
+		}
+		.footer {
+			background-color: #ff0000;
+			height: 100px;
+			width: 100%;
+			margin-top: -50px
+		}
+		.content {
+			min-height: calc(100vh - 200px);
+			padding-top: 200px;
+		}
+		form {
+			padding: 25px;
+			border: solid #008000;
+			border-radius: 25px;
+			text-align: center
+		}
+
+		.navbar {
+			background-color: red !important;
+			height: 100px;
+			width: 100%
+		}
+
+		.nav-link {
+			color: green !important;
+			font-weight: bold !important;
+		}
+
+		.image {
+			max-height: 500px;
+		}
+
+	</style>
+
+	{# <div class="header"> #}
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="/document">Add Documents</a>
+			</li>
+		</ul>
+	</nav>
+	{# </div> #}
+	<div class="grid">
+		{% for url in urls %}
+			<div class="card container" >
+				<img class="image" src="{{url}}"/>
+				<a href="{{ url }}">Download image</a>
+			</div>
+		{% endfor %}
+	</div>
+
+	<div class="grid">
+		{% for i in 0..numberOfPages %}
+			<a class="btn btn-primary" href="/read/{{ i }}">Page {{ (i+1) }}</a>
+		{% endfor %}
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<div class="footer"></div>
+
+{% endblock %}
